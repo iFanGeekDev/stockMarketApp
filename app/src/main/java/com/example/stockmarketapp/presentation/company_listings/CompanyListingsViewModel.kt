@@ -29,6 +29,10 @@ class CompanyListingsViewModel @Inject constructor(
     //no saturar las consultas por cada caracter que escribamos y realizemos busqueda x caracter
     private var searchJob: Job? = null
 
+    init{
+        getCompanyListings()
+    }
+
     fun onEvent(event: CompanyListingsEvent) {
         when (event) {
             is CompanyListingsEvent.Refresh -> {
@@ -42,7 +46,7 @@ class CompanyListingsViewModel @Inject constructor(
                     //la primera vez luego de tipear la query esperamos 500milisegundos
                     delay(500L)
                     //Para lanzar la funcion que me va a dar la lista de company
-                    getCompanyListings( )
+                    getCompanyListings()
 
                     /*
                         Si el usuario vuelve a escribir luego de haber ya escrito la query ( le añade mas caracteres )
