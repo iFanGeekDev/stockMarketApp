@@ -61,6 +61,9 @@ class StockRepositoryImpl @Inject constructor(
                 null
             }
 
+            //listings es el listado de company que viene del API
+            //Primero pasamos este listado a la base de datos
+            //Luego de la base de datos es de donde vamos a consumir la data para mostrar en la UI
             remoteListings?.let { listings ->
                 dao.clearCompanyListings()
                 dao.insertCompanyListings(
